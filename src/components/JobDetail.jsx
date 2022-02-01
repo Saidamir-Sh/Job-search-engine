@@ -2,7 +2,9 @@ import React from 'react';
 
 const JobDetail = () => {
   return (
-    <div></div>
+    <div>
+      jobdetail
+    </div>
   );
 }
 
