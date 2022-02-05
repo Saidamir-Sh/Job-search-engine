@@ -1,5 +1,4 @@
-import { FETCH_JOBS } from "../action";
-import { fetchJobs } from "../action";
+import { FETCH_JOBS, INPUT_CHANGED } from "../action";
 import { initialState } from "../store";
 
 export const rootReducer = (state = initialState, action) => {
@@ -7,7 +6,16 @@ export const rootReducer = (state = initialState, action) => {
         case FETCH_JOBS:
             return {
                 ...state,
-                jobs: action.payload
+                jobs: action.payload,
+                isLoading : false
             }
+        case INPUT_CHANGED: 
+            return {
+                ...state,
+                searchQuery: action.payload,
+            }
+        default: {
+            return state
+        }
     }
 }

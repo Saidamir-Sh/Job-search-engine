@@ -1,4 +1,5 @@
 export const FETCH_JOBS = 'FETCH_JOBS'
+export const INPUT_CHANGED = 'INPUT_CHANGED'
 export const URL = 'https://strive-jobs-api.herokuapp.com/jobs?'
 
 export const fetchJobs = (url) => {
@@ -9,11 +10,18 @@ export const fetchJobs = (url) => {
                 let data = await response.json()
                 dispatch({
                     type: FETCH_JOBS,
-                    payload: data
+                    payload: data.data
                 })
             }
         } catch (error) {
             console.log(error)
         }
+    }
+}
+
+export const inputHandlerAction = (query) => {
+    return {
+        type: INPUT_CHANGED,
+        payload: query
     }
 }

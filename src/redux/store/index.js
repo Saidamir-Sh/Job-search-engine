@@ -7,8 +7,10 @@ import { rootReducer } from '../reducer'
 
 export const initialState = {
     jobs: [],
+    isLoading: true,
     savedJobs: [],
-    companyDetails: []
+    companyDetails: [],
+    searchQuery: '',
 }
 
 const persistConfig = {
