@@ -1,19 +1,33 @@
-import React from 'react';
-import {Card, Button} from 'react-bootstrap'
+import React, { useState } from 'react';
+import {Card} from 'react-bootstrap'
+import BusinessIcon from '@mui/icons-material/Business';
+import PlaceIcon from '@mui/icons-material/Place';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const SingleJob = ({job}) => {
+  const [isSelected, setIsSelected] = useState(false)
+
   return (
-    <Card  key={job._id} className='job__card mx-auto my-2' style={{ width: '70%' }}>
-      <Card.Body>
-        <Card.Title>{job.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{job.company_name}</Card.Subtitle>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
-        </Card.Text>
-        <Card.Link href={job.url}>
-            <Button variant="success">Apply</Button>
-          </Card.Link>
+    <Card  key={job._id} className='job__card mx-auto my-2' style={{ width: '100%' }}>
+      <Card.Body className='py-2 d-flex justify-content-between'>
+       <div>
+          <div>
+            <h6 style={{fontWeight: '600'}}>{job.title}</h6>
+            <small className='text-success'>{!job.salary ? <p>Undisclosed salary</p> : job.salary}</small>
+          </div>
+          <div>
+            <BusinessIcon color="disabled"/>
+            <small className='text-muted mr-2'> {job.company_name}</small>
+            <PlaceIcon color="disabled"/>
+            <small className='text-muted'>{!job.candidate_required_location ? <p className='d-inline'>Remote</p> : job.candidate_required_location}</small>
+          </div>
+       </div>
+       <div onClick={() => setIsSelected(!isSelected)}>
+          {
+          !isSelected ? <BookmarkBorderIcon color="success"/> : <BookmarkIcon color="success"/>
+          }
+       </div>
       </Card.Body>
     </Card>
   )

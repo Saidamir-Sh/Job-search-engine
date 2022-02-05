@@ -16,20 +16,20 @@ function App() {
   return (
     <Provider store={configureStore}>
       <PersistGate persistor={persistor} loading={null}>
-        <Container>
+        <Container fluid>
           <BrowserRouter>
-            <Row>
+            <Row className='justify-content-around'>
               <Col md={12}>
                 <Routes>
                     <Route exact path='/' element={<Navbar />} />
                 </Routes>
               </Col>
-              <Col md={4}>
+              <Col md={3} style={{border: '1px solid green'}}>
                 <Routes>
                   <Route path='/' element={<Filter />}/>
                   </Routes>
               </Col>
-              <Col md={7}>
+              <Col md={8} style={{border: '1px solid red'}}>
                 <Routes>
                   <Route path='/' element={<JobList />}/>
                   </Routes>
