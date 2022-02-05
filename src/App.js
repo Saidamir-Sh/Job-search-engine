@@ -29,7 +29,7 @@ function App() {
                   <Route path='/' element={<Filter />}/>
                   </Routes>
               </Col>
-              <Col md={8} style={{border: '1px solid red'}}>
+              <Col md={8}>
                 <Routes>
                   <Route path='/' element={<JobList />}/>
                   </Routes>

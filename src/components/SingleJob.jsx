@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router'
 import {Card} from 'react-bootstrap'
 import BusinessIcon from '@mui/icons-material/Business';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -7,9 +8,10 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const SingleJob = ({job}) => {
   const [isSelected, setIsSelected] = useState(false)
+  const navigate = useNavigate()
 
   return (
-    <Card  key={job._id} className='job__card mx-auto my-2' style={{ width: '100%' }}>
+    <Card onClick={() => navigate(`/company/${job.company_name}`)}  key={job._id} className='job__card mx-auto my-2' style={{ width: '100%', cursor: 'pointer' }}>
       <Card.Body className='py-2 d-flex justify-content-between'>
        <div>
           <div>
@@ -25,7 +27,7 @@ const SingleJob = ({job}) => {
        </div>
        <div onClick={() => setIsSelected(!isSelected)}>
           {
-          !isSelected ? <BookmarkBorderIcon color="success"/> : <BookmarkIcon color="success"/>
+          !isSelected ? <BookmarkBorderIcon /> : <BookmarkIcon />
           }
        </div>
       </Card.Body>
