@@ -1,23 +1,26 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchJobs, URL } from '../redux/action';
+import { fetchJobs, URL, inputHandlerAction } from '../redux/action';
+import Loader from './Loader'
 
 const JobList = () => {
   const jobs = useSelector((state) => state.jobs)
+  const isLaoding = useSelector((state) => state.isLoading)
+  const searchQuery = useSelector((state) => state.searchQuery)
+
+
   const dispatch = useDispatch()
 
-  console.log(jobs)
   useEffect(() => {
-    dispatch(fetchJobs(URL))
-   
+    dispatch(fetchJobs(URL)) 
   }, [])
 
   return (
     <div>
-        {
-        jobs.map((job) => <h1>Hello</h1>)
-        }
+      {
+        isLaoding ? <Loader />
+      }
     </div>
   );
 }
