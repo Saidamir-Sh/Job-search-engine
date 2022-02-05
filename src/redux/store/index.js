@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import persistReducer from 'redux-persist/es/persistReducer'
+import { rootReducer } from '../reducer'
 
 export const initialState = {
     jobs: [],
@@ -16,10 +17,10 @@ const persistConfig = {
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const persistReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const configureStore = createStore(
-    persistReducer,
+    persistedReducer,
     initialState,
     composeEnhancers(applyMiddleware(thunk))
 )

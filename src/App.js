@@ -5,37 +5,44 @@ import Filter from './components/Filter';
 import JobList from './components/JobList';
 import SavedJobs from './components/SavedJobs';
 import { Container, Col, Row } from "react-bootstrap"
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import JobDetail from './components/JobDetail';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { configureStore, persistor } from './redux/store'
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 
 function App() {
   return (
-    <Container>
-      <BrowserRouter>
-        <Row>
-          <Col md={12}>
+    <Provider store={configureStore}>
+      <PersistGate persistor={persistor} loading={null}>
+        <Container>
+          <BrowserRouter>
+            <Row>
+              <Col md={12}>
+                <Routes>
+                    <Route exact path='/' element={<Navbar />} />
+                </Routes>
+              </Col>
+              <Col md={4}>
+                <Routes>
+                  <Route path='/' element={<Filter />}/>
+                  </Routes>
+              </Col>
+              <Col md={7}>
+                <Routes>
+                  <Route path='/' element={<JobList />}/>
+                  </Routes>
+              </Col>
+            </Row>
             <Routes>
-                <Route exact path='/' element={<Navbar />} />
+                <Route path='/company/:company_name' element={<JobDetail/>} />
+                <Route path='/savedjobs' element={<SavedJobs />}/>
             </Routes>
-          </Col>
-          <Col md={4}>
-            <Routes>
-              <Route path='/' element={<Filter />}/>
-              </Routes>
-          </Col>
-          <Col md={7}>
-            <Routes>
-              <Route path='/' element={<JobList />}/>
-              </Routes>
-          </Col>
-        </Row>
-        <Routes>
-            <Route path='/company/:company_name' element={<JobDetail/>} />
-            <Route path='/savedjobs' element={<SavedJobs />}/>
-        </Routes>
-      </BrowserRouter>
-    </Container>
+          </BrowserRouter>
+        </Container>
+      </PersistGate>
+    </Provider>
   );
 }
 
