@@ -26,6 +26,7 @@ export const fetchCompany = (url, companyName) => {
             let response = await fetch(`${url}company=${companyName}`)
             if(response.ok) {
                 let data = await response.json()
+                console.log(data.data)
                 dispatch({
                     type: FETCH_COMPANY,
                     payload: data
