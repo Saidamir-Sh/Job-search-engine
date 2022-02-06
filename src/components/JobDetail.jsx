@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { fetchCompany } from '../redux/action';
 import { URL } from '../redux/action';
+import Interweave from 'interweave'
 
 
 const JobDetail = () => {
@@ -17,8 +18,9 @@ const JobDetail = () => {
   const jobUrl = useSelector((state) => state.companyDetails.data[0].url)
   const salary = useSelector((state) => state.companyDetails.data[0].salary)
   const jobType = useSelector((state) => state.companyDetails.data[0].job_type)
+  const description = useSelector((state) => state.companyDetails.data[0].description)
 
-  console.log(jobType)
+
 
 
   const companyName = params.company_name
@@ -28,7 +30,8 @@ const JobDetail = () => {
   }, [])
   return (
     <div>
-      jobdetail
+      <Interweave content={description} />;
+      
     </div>
   );
 }
