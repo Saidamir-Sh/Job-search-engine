@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { fetchCompany } from '../redux/action';
 import { URL } from '../redux/action';
 import Interweave from 'interweave'
+import { Row, Col } from 'react-bootstrap'
 
 
 const JobDetail = () => {
@@ -20,9 +21,6 @@ const JobDetail = () => {
   const jobType = useSelector((state) => state.companyDetails.data[0].job_type)
   const description = useSelector((state) => state.companyDetails.data[0].description)
 
-
-
-
   const companyName = params.company_name
 
   useEffect(() => {
@@ -30,7 +28,11 @@ const JobDetail = () => {
   }, [])
   return (
     <div>
-      <Interweave content={description} />;
+      <Row>
+        <Col md={8} className='mx-auto card my-2'>
+        <Interweave content={description} />;
+        </Col>
+      </Row>
       
     </div>
   );

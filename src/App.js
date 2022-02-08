@@ -24,7 +24,7 @@ function App() {
                     <Route exact path='/' element={<Navbar />} />
                 </Routes>
               </Col>
-              <Col md={3} style={{border: '1px solid green'}}>
+              <Col md={3}>
                 <Routes>
                   <Route path='/' element={<Filter />}/>
                   </Routes>
