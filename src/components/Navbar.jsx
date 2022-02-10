@@ -1,10 +1,12 @@
 import React from 'react';
-
+import {Container} from 'react-bootstrap'
 const Navbar = () => {
   return (
-    <div>
-        navbar
-    </div>
+    <Container>
+      <Navbar expand="lg" variant="light" bg="light">
+        <Navbar.Brand href="#">Navbar</Navbar.Brand>
+      </Navbar>
+    </Container>
   );
 }
 

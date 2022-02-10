@@ -23,6 +23,8 @@ const JobDetail = () => {
 
   const companyName = params.company_name
 
+
+
   useEffect(() => {
     dispatch(fetchCompany(URL, companyName))
   }, [])
@@ -30,6 +32,7 @@ const JobDetail = () => {
     <div>
       <Row>
         <Col md={8} className='mx-auto card my-2'>
+          
         <Interweave content={description} />;
         </Col>
       </Row>
