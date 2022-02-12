@@ -23,7 +23,8 @@ export const rootReducer = (state = initialState, action) => {
         case FETCH_SAME_JOBS: 
             return {
                 ...state,
-                sameJobs: action.payload
+                sameJobs: action.payload,
+                isLoading: false
             }
         default: {
             return state

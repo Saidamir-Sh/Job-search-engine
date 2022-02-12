@@ -5,6 +5,7 @@ import { fetchCompany } from '../redux/action';
 import { URL } from '../redux/action';
 import Interweave from 'interweave';
 import { Row, Col } from 'react-bootstrap';
+import SimilarJobs from './SimilarJobs';
 
 
 const JobDetail = () => {
@@ -25,11 +26,11 @@ const JobDetail = () => {
 
   useEffect(() => {
     dispatch(fetchCompany(URL, companyName))
-  }, [])
+  }, [companyName])
   return (
     <div>
-      <Row>
-        <Col md={8} className='mx-auto card my-2'>
+      <Row className='d-flex flex-row'>
+        <Col md={5} className='mx-auto card my-2'>
           <div className='d-flex align-items-center justify-content-between'>
             <div>
               <h3>{title}</h3>
@@ -37,13 +38,13 @@ const JobDetail = () => {
               <small className='text-muted'>{category}</small>
             </div>
             <a href={jobUrl} className='btn btn-primary'>
-            Apply
-          </a>  
+              Apply
+            </a>  
           </div> 
           <div></div>
         </Col>
-        <Col md={8} className='mx-auto card my-2'>
-        
+        <Col md={6} className='mx-auto my-2'>
+          <SimilarJobs category={category} />
         </Col>
       </Row>
       

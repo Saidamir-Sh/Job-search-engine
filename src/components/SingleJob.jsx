@@ -7,6 +7,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const SingleJob = ({job}) => {
+  
   const [isSelected, setIsSelected] = useState(false)
   const navigate = useNavigate()
 

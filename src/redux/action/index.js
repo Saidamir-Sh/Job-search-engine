@@ -45,7 +45,6 @@ export const fetchSimilarJobs = (url, category) => {
             let response = await fetch(`${url}category=${category}&limit=10`)
             if(response.ok) {
                 let data = await response.json()
-                console.Console.log(data)
                 dispatch({
                     type: FETCH_SAME_JOBS,
                     payload: data
