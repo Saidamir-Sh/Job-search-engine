@@ -17,7 +17,8 @@ export const rootReducer = (state = initialState, action) => {
         case FETCH_COMPANY:
             return {
                 ...state,
-                companyDetails: action.payload
+                companyDetails: action.payload,
+                isLoading: false,
             }
         default: {
             return state

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { fetchCompany } from '../redux/action';
 import { URL } from '../redux/action';
-import Interweave from 'interweave'
-import { Row, Col } from 'react-bootstrap'
+import Interweave from 'interweave';
+import { Row, Col } from 'react-bootstrap';
+import Loader from './Loader';
 
 
 const JobDetail = () => {
@@ -19,10 +20,13 @@ const JobDetail = () => {
   const jobUrl = useSelector((state) => state.companyDetails.data[0].url)
   const salary = useSelector((state) => state.companyDetails.data[0].salary)
   const jobType = useSelector((state) => state.companyDetails.data[0].job_type)
-  const description = useSelector((state) => state.companyDetails.data[0].description)
+     const description = useSelector((state) => state.companyDetails.data[0].description)
+
+  const state = useSelector((state) => state.companyDetails)
+  console.log(state)
 
   const companyName = params.company_name
-
+  console.log(companyName)
 
 
   useEffect(() => {
@@ -32,8 +36,7 @@ const JobDetail = () => {
     <div>
       <Row>
         <Col md={8} className='mx-auto card my-2'>
-          
-        <Interweave content={description} />;
+            <Interweave content={description} /> 
         </Col>
       </Row>
       
