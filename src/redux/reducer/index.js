@@ -1,4 +1,4 @@
-import { FETCH_COMPANY, FETCH_JOBS, INPUT_CHANGED } from "../action";
+import { FETCH_COMPANY, FETCH_JOBS, INPUT_CHANGED, FETCH_SAME_JOBS } from "../action";
 import { initialState } from "../store";
 
 export const rootReducer = (state = initialState, action) => {
@@ -19,6 +19,11 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 companyDetails: action.payload,
                 isLoading: false,
+            }
+        case FETCH_SAME_JOBS: 
+            return {
+                ...state,
+                sameJobs: action.payload
             }
         default: {
             return state

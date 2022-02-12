@@ -10,6 +10,7 @@ export const initialState = {
     isLoading: true,
     savedJobs: [],
     companyDetails: [],
+    sameJobs: [],
     searchQuery: '',
 }
 
