@@ -5,7 +5,6 @@ import { fetchCompany } from '../redux/action';
 import { URL } from '../redux/action';
 import Interweave from 'interweave';
 import { Row, Col } from 'react-bootstrap';
-import Loader from './Loader';
 
 
 const JobDetail = () => {
@@ -20,14 +19,9 @@ const JobDetail = () => {
   const jobUrl = useSelector((state) => state.companyDetails.data[0].url)
   const salary = useSelector((state) => state.companyDetails.data[0].salary)
   const jobType = useSelector((state) => state.companyDetails.data[0].job_type)
-     const description = useSelector((state) => state.companyDetails.data[0].description)
-
-  const state = useSelector((state) => state.companyDetails)
-  console.log(state)
+  const description = useSelector((state) => state.companyDetails.data[0].description)
 
   const companyName = params.company_name
-  console.log(companyName)
-
 
   useEffect(() => {
     dispatch(fetchCompany(URL, companyName))
@@ -36,12 +30,26 @@ const JobDetail = () => {
     <div>
       <Row>
         <Col md={8} className='mx-auto card my-2'>
-            <Interweave content={description} /> 
+          <div className='d-flex align-items-center justify-content-between'>
+            <div>
+              <h3>{title}</h3>
+              <p className='text-success'>{!salary ? <p>Undisclosed salary</p> : salary}</p>
+              <small className='text-muted'>{category}</small>
+            </div>
+            <a href={jobUrl} className='btn btn-primary'>
+            Apply
+          </a>  
+          </div> 
+          <div></div>
+        </Col>
+        <Col md={8} className='mx-auto card my-2'>
+        
         </Col>
       </Row>
       
     </div>
   );
 }
+{/* <Interweave content={description} />  */}
 
 export default JobDetail;
