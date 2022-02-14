@@ -33,7 +33,7 @@ const JobDetail = () => {
   return (
     <div>
       <Row className='d-flex flex-row'>
-        <Col md={5} className='mx-auto card my-2'>
+        <Col md={5} className='mx-auto card my-2 py-3'>
           <div className='d-flex align-items-center justify-content-between'>
             <div>
               <h3>{title}</h3>
@@ -44,7 +44,7 @@ const JobDetail = () => {
               Apply
             </a>  
           </div> 
-          <div className='row d-flex justify-content-around my-3'>
+          <div className='row d-flex justify-content-around my-4'>
             <div className='col-md-3 card d-flex align-items-center flex-column py-3'>
               <BusinessIcon />
               <small>{company}</small>
@@ -58,7 +58,7 @@ const JobDetail = () => {
               <small>{location}</small>
             </div>
           </div>
-          <div className='mt-5' style={{fontSize: '14px'}}>
+          <div className='mt-0' style={{fontSize: '14px'}}>
             <Interweave content={description} />
           </div>
         </Col>

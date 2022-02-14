@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar';
+import NavbarComponent from './components/NavbarComponent';
 import Filter from './components/Filter';
 import JobList from './components/JobList';
 import SavedJobs from './components/SavedJobs';
@@ -16,13 +16,11 @@ function App() {
   return (
     <Provider store={configureStore}>
       <PersistGate persistor={persistor} loading={null}>
-        <Container fluid>
+        <Container fluid={true}>
           <BrowserRouter>
             <Row className='justify-content-around'>
-              <Col md={12}>
-                <Routes>
-                    <Route exact path='/' element={<Navbar />} />
-                </Routes>
+              <Col md={12} className='p-0'>
+                  <NavbarComponent />
               </Col>
               <Col md={3}>
                 <Routes>
