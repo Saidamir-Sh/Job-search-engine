@@ -6,6 +6,9 @@ import { URL } from '../redux/action';
 import Interweave from 'interweave';
 import { Row, Col } from 'react-bootstrap';
 import SimilarJobs from './SimilarJobs';
+import BusinessIcon from '@mui/icons-material/Business';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PlaceIcon from '@mui/icons-material/Place';
 
 
 const JobDetail = () => {
@@ -35,13 +38,29 @@ const JobDetail = () => {
             <div>
               <h3>{title}</h3>
               <p className='text-success'>{!salary ? <p>Undisclosed salary</p> : salary}</p>
-              <small className='text-muted'>{category}</small>
+              <small className='text-muted'>Category : {category}</small>
             </div>
             <a href={jobUrl} className='btn btn-primary'>
               Apply
             </a>  
           </div> 
-          <div></div>
+          <div className='row d-flex justify-content-around my-3'>
+            <div className='col-md-3 card d-flex align-items-center flex-column py-3'>
+              <BusinessIcon />
+              <small>{company}</small>
+            </div>
+            <div className='col-md-3 card d-flex align-items-center flex-column py-3'>
+              <AccessTimeIcon />
+              <small>{jobType}</small>
+            </div>
+            <div className='col-md-3 card d-flex align-items-center flex-column py-3'>
+              <PlaceIcon />
+              <small>{location}</small>
+            </div>
+          </div>
+          <div className='mt-5' style={{fontSize: '14px'}}>
+            <Interweave content={description} />
+          </div>
         </Col>
         <Col md={6} className='mx-auto my-2'>
           <SimilarJobs category={category} />
