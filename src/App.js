@@ -25,7 +25,7 @@ function App() {
               <Col md={3}>
                 <Routes>
                   <Route path='/' element={<Filter />}/>
-                  </Routes>
+                </Routes>
               </Col>
               <Col md={8}>
                 <Routes>
