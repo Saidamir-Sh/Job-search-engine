@@ -1,15 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { fetchSimilarJobs, URL } from '../redux/action';
+import Loader from './Loader';
+import SingleJob from './SingleJob';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 const Filter = () => {
+  const dispatch = useDispatch()
   const [category, setCategory] = useState('');
   
   const handleCategory = (e) => {
     setCategory(e.target.value)
   }
-  console.log(category)
 
   return (
     <div className='card my-2 py-2 px-3'>

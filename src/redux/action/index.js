@@ -2,6 +2,7 @@ export const FETCH_JOBS = 'FETCH_JOBS'
 export const FETCH_COMPANY = 'FETCH_COMPANY'
 export const INPUT_CHANGED = 'INPUT_CHANGED'
 export const FETCH_SAME_JOBS = 'FETCH_SAME_JOBS'
+export const FETCH_CATEGORY = 'FETCH_CATEGORY'
 export const URL = 'https://strive-jobs-api.herokuapp.com/jobs?'
 
 export const fetchJobs = (url) => {
@@ -55,6 +56,7 @@ export const fetchSimilarJobs = (url, category) => {
         }
     }
 }
+
 
 export const inputHandlerAction = (query) => {
     return {
