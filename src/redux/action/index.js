@@ -57,6 +57,23 @@ export const fetchSimilarJobs = (url, category) => {
     }
 }
 
+export const fetchCategory = (url, category) => {
+    return async (dispatch) => {
+        try {
+            let response = await fetch(`${url}category=${category}&limit=20`)
+            if(response.ok) {
+                let data = await response.json()
+                dispatch({
+                    type: FETCH_CATEGORY,
+                    payload: data
+                })
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 
 export const inputHandlerAction = (query) => {
     return {
