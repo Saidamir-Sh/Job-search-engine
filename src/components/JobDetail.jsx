@@ -24,7 +24,8 @@ const JobDetail = () => {
   const salary = useSelector((state) => state.companyDetails.data[0].salary)
   const jobType = useSelector((state) => state.companyDetails.data[0].job_type)
   const description = useSelector((state) => state.companyDetails.data[0].description)
-
+  const state = useSelector((state) => state.companyDetails)
+  console.log(state)
   const companyName = params.company_name
 
   useEffect(() => {

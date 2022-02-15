@@ -13,9 +13,11 @@ const Filter = () => {
     setCategory(e.target.value)
   }
   console.log(category)
+  
   useEffect(() => {
     dispatch(fetchCategory(URL, category))
   }, [category])
+
   return (
     <div className='card my-2 py-2 px-3'>
       <input type="text" placeholder='Search...' />

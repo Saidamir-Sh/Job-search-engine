@@ -62,7 +62,6 @@ export const fetchCategory = (url, category) => {
             let response = await fetch(`${url}category=${category}&limit=15`)
             if(response.ok) {
                 let data = await response.json()
-                console.log(data.data)
                 dispatch({
                     type: FETCH_CATEGORY,
                     payload: data.data
