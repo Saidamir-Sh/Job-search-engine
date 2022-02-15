@@ -2,7 +2,6 @@ export const FETCH_JOBS = 'FETCH_JOBS'
 export const FETCH_COMPANY = 'FETCH_COMPANY'
 export const INPUT_CHANGED = 'INPUT_CHANGED'
 export const FETCH_SAME_JOBS = 'FETCH_SAME_JOBS'
-export const FETCH_CATEGORY = 'FETCH_CATEGORY'
 export const URL = 'https://strive-jobs-api.herokuapp.com/jobs?'
 
 export const fetchJobs = (url) => {
@@ -48,23 +47,6 @@ export const fetchSimilarJobs = (url, category) => {
                 let data = await response.json()
                 dispatch({
                     type: FETCH_SAME_JOBS,
-                    payload: data
-                })
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
-}
-
-export const fetchCategory = (url, category) => {
-    return async (dispatch) => {
-        try {
-            let response = await fetch(`${url}category=${category}&limit=20`)
-            if(response.ok) {
-                let data = await response.json()
-                dispatch({
-                    type: FETCH_CATEGORY,
                     payload: data
                 })
             }

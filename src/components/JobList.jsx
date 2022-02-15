@@ -9,7 +9,8 @@ const JobList = () => {
   const jobs = useSelector((state) => state.jobs)
   const isLaoding = useSelector((state) => state.isLoading)
   //const searchQuery = useSelector((state) => state.searchQuery)
-  
+  console.log(jobs)
+
 
   const dispatch = useDispatch()
 
