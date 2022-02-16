@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchCompany } from '../redux/action';
-import { URL } from '../redux/action';
+import { fetchCompany, URL } from '../redux/action';
 import Interweave from 'interweave';
 import { Row, Col } from 'react-bootstrap';
 import SimilarJobs from './SimilarJobs';
@@ -13,9 +12,6 @@ import PlaceIcon from '@mui/icons-material/Place';
 
 const JobDetail = () => {
 
-  const params = useParams()
-  const dispatch = useDispatch()
-
   const title = useSelector((state) => state.companyDetails.data[0].title)
   const company = useSelector((state) => state.companyDetails.data[0].company_name)
   const category = useSelector((state) => state.companyDetails.data[0].category)
@@ -24,13 +20,16 @@ const JobDetail = () => {
   const salary = useSelector((state) => state.companyDetails.data[0].salary)
   const jobType = useSelector((state) => state.companyDetails.data[0].job_type)
   const description = useSelector((state) => state.companyDetails.data[0].description)
-  const state = useSelector((state) => state.companyDetails)
-  console.log(state)
+
+  const params = useParams()
+  const dispatch = useDispatch()
+  
   const companyName = params.company_name
 
   useEffect(() => {
     dispatch(fetchCompany(URL, companyName))
-  }, [companyName])
+  }, [])
+
   return (
     <div>
       <Row className='d-flex flex-row'>

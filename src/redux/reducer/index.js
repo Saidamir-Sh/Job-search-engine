@@ -24,13 +24,13 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sameJobs: action.payload,
-                isLoading: false
+                isLoading: false,
             }
         case FETCH_CATEGORY: 
             return {
                 ...state,
                 jobs: action.payload,
-                isLoading: false
+                isLoading: false,
             }
         default: {
             return state

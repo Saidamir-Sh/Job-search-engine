@@ -6,13 +6,13 @@ import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { fetchCategory, URL } from '../redux/action';
 
 const Filter = () => {
+
   const dispatch = useDispatch()
   const [category, setCategory] = useState('');
 
   const handleCategory = (e) => {
     setCategory(e.target.value)
   }
-  console.log(category)
   
   useEffect(() => {
     dispatch(fetchCategory(URL, category))
